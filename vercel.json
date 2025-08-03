@@ -1,0 +1,19 @@
+{
+    "builds": [
+        {
+            "src": "playwrightScraping/wsgi.py",
+            "use": "@vercel/python",
+            "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.4" }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "playwrightScraping/wsgi.py"
+        },
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        }
+    ]
+}
